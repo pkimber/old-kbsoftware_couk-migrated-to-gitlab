@@ -52,3 +52,17 @@ coverage.xml
 # Sphinx documentation
 docs/_build/
 
+# dev
+.cache
+logfile
+logfile.1
+logfile.2
+logfile.3
+MANIFEST
+media
+media-private
+temp.db
+venv-*
+
+# private info
+.private

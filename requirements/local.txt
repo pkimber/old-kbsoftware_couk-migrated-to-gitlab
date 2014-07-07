@@ -1,0 +1,12 @@
+-r base.txt
+-e .
+-e ../../app/base
+-e ../../app/login
+fabric
+gitpython
+hgapi
+ipdb
+pytest-django
+pytest-flakes
+pytest-pep8
+walkdir
