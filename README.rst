@@ -43,9 +43,9 @@ Usage
 Browse to http://localhost:8000/::
 
   user          staff
-  password      staff
+  password      letmein
 
 Release and Deploy
 ==================
 
-https://django-dev-and-deploy-using-salt.readthedocs.org/
+https://pkimber.net/open/

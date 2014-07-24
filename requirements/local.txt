@@ -3,6 +3,7 @@
 -e ../../app/base
 -e ../../app/login
 fabric
+factory-boy
 gitpython
 hgapi
 ipdb

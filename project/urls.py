@@ -1,10 +1,12 @@
 # -*- encoding: utf-8 -*-
-
 from __future__ import unicode_literals
+
 from django.conf import settings
-from django.conf.urls import include
-from django.conf.urls import patterns
-from django.conf.urls import url
+from django.conf.urls import (
+    include,
+    patterns,
+    url,
+)
 from django.conf.urls.static import static
 from django.contrib import admin
 
@@ -17,11 +19,14 @@ urlpatterns = patterns(
     url(regex=r'^',
         view=include('login.urls')
         ),
+    url(regex=r'^',
+        view=include('web.urls')
+        ),
     url(regex=r'^admin/',
         view=include(admin.site.urls)
         ),
-    url(regex=r'^',
-        view=include('web.urls')
+    url(regex=r'^dash/',
+        view=include('dash.urls')
         ),
 )
 
