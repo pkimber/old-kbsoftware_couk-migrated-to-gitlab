@@ -19,8 +19,8 @@ def get_readme():
 
 
 setup(
-    name='pkimber-activ8rlives-com',
-    packages=['project', 'project.management', 'project.management.commands', 'web', 'web.tests', 'settings'],
+    name='pkimber-kbsoftware-couk',
+    packages=['project', 'project.management', 'project.management.commands', 'web', 'web.tests', 'dash', 'dash.tests', 'settings'],
     package_data={
         'project': [
             'static/*.*',
@@ -34,12 +34,17 @@ setup(
             'templates/*.*',
             'templates/web/*.*',
         ],
+
+        'dash': [
+            'templates/*.*',
+            'templates/dash/*.*',
+        ],
     },
-    version='0.0.03',
-    description='Activ8rlives',
+    version='0.0.02',
+    description='KB Software Ltd',
     author='Patrick Kimber',
     author_email='code@pkimber.net',
-    url='ssh://hg@bitbucket.org/kbsoftwareltd/activ8rlives_com/',
+    url='git@github.com:pkimber/kbsoftware_couk.git',
     classifiers=[
         'Development Status :: 1 - Planning',
         'Environment :: Console',
