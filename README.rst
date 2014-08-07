@@ -4,9 +4,6 @@ kbsoftware.co.uk
 Development
 ===========
 
-Install
--------
-
 Virtual Environment
 -------------------
 
