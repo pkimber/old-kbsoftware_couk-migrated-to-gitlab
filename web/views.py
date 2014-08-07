@@ -11,12 +11,6 @@ from braces.views import (
 from base.view_utils import BaseMixin
 
 
-class DashView(
-        LoginRequiredMixin, StaffuserRequiredMixin, BaseMixin, TemplateView):
-
-    template_name = 'web/dash.html'
-
-
 class HomeView(BaseMixin, TemplateView):
 
     template_name = 'web/home.html'
