@@ -7,10 +7,7 @@ from django.conf.urls import (
 )
 from django.contrib import admin
 
-from .views import (
-    DashView,
-    HomeView,
-)
+from .views import HomeView
 
 
 admin.autodiscover()
@@ -21,9 +18,5 @@ urlpatterns = patterns(
     url(regex=r'^$',
         view=HomeView.as_view(),
         name='project.home'
-        ),
-    url(regex=r'^dash/$',
-        view=DashView.as_view(),
-        name='project.home.user'
         ),
 )

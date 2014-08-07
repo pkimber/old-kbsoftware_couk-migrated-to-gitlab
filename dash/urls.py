@@ -6,13 +6,13 @@ from django.conf.urls import (
     url,
 )
 
-from .views import HomeView
+from .views import DashView
 
 
 urlpatterns = patterns(
     '',
     url(regex=r'^$',
-        view=HomeView.as_view(),
+        view=DashView.as_view(),
         name='project.home.user'
         ),
 )
