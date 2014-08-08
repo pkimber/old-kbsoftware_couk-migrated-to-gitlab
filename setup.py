@@ -40,7 +40,7 @@ setup(
             'templates/project/*.*',
         ],
     },
-    version='0.0.04',
+    version='0.0.05',
     description='KB Software Ltd',
     author='Greg Bushell',
     author_email='greg@kbsoftware.co.uk',
