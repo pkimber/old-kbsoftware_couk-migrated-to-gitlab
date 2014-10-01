@@ -20,14 +20,11 @@ def get_readme():
 
 setup(
     name='pkimber-kbsoftware-couk',
-    packages=['project', 'project.management', 'project.management.commands', 'web', 'web.tests', 'dash', 'dash.tests', 'settings'],
+    packages=['settings', 'web', 'web.tests', 'dash', 'dash.tests', 'project', 'project.management', 'project.management.commands'],
     package_data={
-        'project': [
-            'static/*.*',
-            'static/img/*.*',
-            'static/img/project/*.*',
+        'dash': [
             'templates/*.*',
-            'templates/project/*.*',
+            'templates/dash/*.*',
         ],
 
         'web': [
@@ -35,15 +32,18 @@ setup(
             'templates/web/*.*',
         ],
 
-        'dash': [
+        'project': [
+            'static/*.*',
+            'static/img/*.*',
+            'static/img/project/*.*',
             'templates/*.*',
-            'templates/dash/*.*',
+            'templates/project/*.*',
         ],
     },
-    version='0.0.03',
+    version='0.0.07',
     description='KB Software Ltd',
-    author='Patrick Kimber',
-    author_email='code@pkimber.net',
+    author='Greg Bushell',
+    author_email='greg@kbsoftware.co.uk',
     url='git@github.com:pkimber/kbsoftware_couk.git',
     classifiers=[
         'Development Status :: 1 - Planning',
