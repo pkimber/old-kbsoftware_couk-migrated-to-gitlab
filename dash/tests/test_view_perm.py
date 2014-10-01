@@ -13,4 +13,4 @@ class TestViewPerm(PermTestCase):
         default_scenario_login()
 
     def test_dash(self):
-        self._assert_staff(reverse('project.home.user'))
+        self._assert_staff(reverse('project.dash'))

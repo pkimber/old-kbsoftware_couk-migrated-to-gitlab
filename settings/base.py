@@ -153,6 +153,7 @@ THIRD_PARTY_APPS = (
     'compressor',
     'reversion',
     'south',
+    #'django_extensions',
 )
 
 LOCAL_APPS = (
@@ -167,7 +168,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 # URL where requests are redirected after login when the contrib.auth.login
 # view gets no next parameter.
-LOGIN_REDIRECT_URL = reverse_lazy('project.home.user')
+LOGIN_REDIRECT_URL = reverse_lazy('project.dash')
 
 # Login URL. Used with login_required decorators when a user
 # must be logged in before accessing the view otherwise this URL

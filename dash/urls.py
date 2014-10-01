@@ -13,6 +13,6 @@ urlpatterns = patterns(
     '',
     url(regex=r'^$',
         view=DashView.as_view(),
-        name='project.home.user'
+        name='project.dash'
         ),
 )
