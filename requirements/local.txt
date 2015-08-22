@@ -1,8 +1,12 @@
 -r base.txt
 -e .
 -e ../../app/base
+-e ../../app/crm
+-e ../../app/finance
+-e ../../app/invoice
 -e ../../app/login
 -e ../../app/mail
+-e ../../app/search
 fabric
 factory-boy
 gitpython

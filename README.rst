@@ -1,6 +1,21 @@
 kbsoftware.co.uk
 ****************
 
+WIP
+===
+
+Move CRM from ``pkimber_net`` to ``kbsoftware_couk``::
+
+  pg_dump test_pkimber_net_patrick -f test_pkimber_net_patrick.sql
+  # psql -U postgres test_pkimber_net_patrick
+  drop database test_kbsoftware_couk_patrick;
+  psql -X -U postgres -c "CREATE DATABASE test_kbsoftware_couk_patrick TEMPLATE=template0 ENCODING='utf-8';"
+
+  psql -d test_kbsoftware_couk_patrick -f test_pkimber_net_patrick.sql 2> out.log
+  cat out.log
+
+.. important:: Don't forget to copy files (private and public).
+
 Development
 ===========
 

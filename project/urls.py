@@ -1,6 +1,4 @@
 # -*- encoding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.conf import settings
 from django.conf.urls import (
     include,
@@ -25,8 +23,24 @@ urlpatterns = patterns(
     url(regex=r'^admin/',
         view=include(admin.site.urls)
         ),
+    url(regex=r'^api/0.1/',
+        view=include('crm.urls_api')
+        ),
+    url(regex=r'^crm/',
+        view=include('crm.urls')
+        ),
     url(regex=r'^dash/',
         view=include('dash.urls')
+        ),
+    url(regex=r'^invoice/',
+        view=include('invoice.urls')
+        ),
+    url(regex=r'^search/',
+        view=include('search.urls')
+        ),
+    url(regex=r'^token/$',
+        view='rest_framework.authtoken.views.obtain_auth_token',
+        name='api.token.auth',
         ),
 )
 

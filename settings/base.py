@@ -73,10 +73,6 @@ USE_L10N = True
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
 
-# Absolute filesystem path to the directory that will hold user-uploaded files.
-# Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
-
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
@@ -127,6 +123,26 @@ ROOT_URLCONF = 'project.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'project.wsgi.application'
 
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.contrib.messages.context_processors.messages',
+            ],
+            'string_if_invalid': '**** INVALID EXPRESSION: %s ****',
+        },
+    },
+]
+
 DJANGO_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -146,11 +162,15 @@ THIRD_PARTY_APPS = (
 )
 
 LOCAL_APPS = (
-    'project',
     'base',
+    'crm',
     'dash',
+    'finance',
+    'invoice',
     'login',
     'mail',
+    'project',
+    'search',
     'web',
 )
 
@@ -158,12 +178,28 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 # URL where requests are redirected after login when the contrib.auth.login
 # view gets no next parameter.
-LOGIN_REDIRECT_URL = reverse_lazy('project.dash')
+LOGIN_REDIRECT_URL = reverse_lazy('crm.ticket.home')
 
 # Login URL. Used with login_required decorators when a user
 # must be logged in before accessing the view otherwise this URL
 # will be called.
 # LOGIN_URL = reverse_lazy('login.login')
+
+# Celery
+BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+# https://kfalck.net/2013/02/21/run-multiple-celeries-on-a-single-redis
+CELERY_DEFAULT_QUEUE = '{}'.format(SITE_NAME)
+
+from celery.schedules import crontab
+CELERYBEAT_SCHEDULE = {
+    'update_search_index': {
+        'task': 'search.tasks.update_search_index',
+        'schedule': crontab(minute='15', hour='*/1'),
+    },
+}
+
+CONTACT_MODEL = 'crm.Contact'
 
 LOGGING = {
     'version': 1,
