@@ -19,7 +19,7 @@ def get_readme():
 
 
 setup(
-    name='pkimber-kbsoftware-couk',
+    name='kb-kbsoftware-couk',
     packages=['settings', 'web', 'web.tests', 'dash', 'dash.tests', 'project', 'project.management', 'project.management.commands'],
     package_data={
         'dash': [

@@ -150,6 +150,7 @@ LOCAL_APPS = (
     'base',
     'dash',
     'login',
+    'mail',
     'web',
 )
 

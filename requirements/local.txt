@@ -2,6 +2,7 @@
 -e .
 -e ../../app/base
 -e ../../app/login
+-e ../../app/mail
 fabric
 factory-boy
 gitpython
