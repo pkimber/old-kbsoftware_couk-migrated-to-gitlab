@@ -7,12 +7,13 @@ from django.db import models, migrations
 def remove_references_to_old_tables(apps, schema_editor):
     model = apps.get_model('contenttypes', 'ContentType')
     model.objects.filter(app_label='block').delete()
+    model.objects.filter(app_label='booking').delete()
     model.objects.filter(app_label='cms').delete()
     model.objects.filter(app_label='compose').delete()
+    model.objects.filter(app_label='enquiry').delete()
     model.objects.filter(app_label='original').delete()
     model.objects.filter(app_label='project').delete()
     model.objects.filter(app_label='web').delete()
-    pass
 
 
 class Migration(migrations.Migration):
@@ -30,6 +31,12 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.RunSQL('drop table booking_booking'),
+        migrations.RunSQL('drop table booking_bookingsettings'),
+        migrations.RunSQL('drop table booking_category'),
+        migrations.RunSQL('drop table booking_location'),
+        migrations.RunSQL('drop table booking_permission'),
+        migrations.RunSQL('drop table enquiry_enquiry'),
         migrations.RunSQL('drop table project_stripecontent'),
         migrations.RunSQL('drop table cms_container'),
         migrations.RunSQL('drop table cms_section'),
