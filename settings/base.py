@@ -62,7 +62,7 @@ LANGUAGE_CODE = 'en-gb'
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
-USE_I18N = True
+USE_I18N = False
 
 # If you set this to False, Django will not format dates, numbers and
 # calendars according to the current locale.
@@ -155,8 +155,13 @@ DJANGO_APPS = (
 )
 
 THIRD_PARTY_APPS = (
-    'opbeat.contrib.django',
+    'celery_haystack',
     'compressor',
+    'haystack',
+    'opbeat.contrib.django',
+    'rest_framework',
+    # http://www.django-rest-framework.org/api-guide/authentication#tokenauthentication
+    'rest_framework.authtoken',
     'reversion',
     #'django_extensions',
 )
@@ -176,6 +181,8 @@ LOCAL_APPS = (
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
+CONTACT_MODEL = 'crm.Contact'
+
 # URL where requests are redirected after login when the contrib.auth.login
 # view gets no next parameter.
 LOGIN_REDIRECT_URL = reverse_lazy('crm.ticket.home')
@@ -185,26 +192,26 @@ LOGIN_REDIRECT_URL = reverse_lazy('crm.ticket.home')
 # will be called.
 # LOGIN_URL = reverse_lazy('login.login')
 
-# Celery
-BROKER_URL = 'redis://localhost:6379/0'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
-# https://kfalck.net/2013/02/21/run-multiple-celeries-on-a-single-redis
-CELERY_DEFAULT_QUEUE = '{}'.format(SITE_NAME)
-
-from celery.schedules import crontab
-CELERYBEAT_SCHEDULE = {
-    'update_search_index': {
-        'task': 'search.tasks.update_search_index',
-        'schedule': crontab(minute='15', hour='*/1'),
-    },
-}
-
 CONTACT_MODEL = 'crm.Contact'
 
 OPBEAT = {
     'ORGANIZATION_ID': get_env_variable('OPBEAT_ORGANIZATION_ID'),
     'APP_ID': get_env_variable('OPBEAT_APP_ID'),
     'SECRET_TOKEN': get_env_variable('OPBEAT_SECRET_TOKEN'),
+}
+
+# http://www.django-rest-framework.org/api-guide/authentication#tokenauthentication
+REST_FRAMEWORK = {
+    'COERCE_DECIMAL_TO_STRING': True,
+    # not sure if this is required or not
+    # 'DATETIME_FORMAT': '%Y%m%dT%H%M%SZ',
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAdminUser',
+    ),
+    'TEST_REQUEST_DEFAULT_FORMAT': 'json',
 }
 
 LOGGING = {
@@ -225,8 +232,8 @@ LOGGING = {
             'level':'DEBUG',
             'class':'logging.handlers.RotatingFileHandler',
             'filename': "logfile",
-            'maxBytes': 50000,
-            'backupCount': 2,
+            'maxBytes': 500000,
+            'backupCount': 10,
             'formatter': 'standard',
         },
         'console':{

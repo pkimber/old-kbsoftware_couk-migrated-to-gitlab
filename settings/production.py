@@ -3,7 +3,6 @@ from .base import *
 
 DEBUG = False
 TESTING = get_env_variable_bool('TESTING')
-THUMBNAIL_DEBUG = DEBUG
 
 if get_env_variable_bool('SSL'):
     SESSION_COOKIE_SECURE = True
@@ -16,6 +15,8 @@ BROKER_URL = 'redis://localhost:6379/0'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 # https://kfalck.net/2013/02/21/run-multiple-celeries-on-a-single-redis
 CELERY_DEFAULT_QUEUE = '{}'.format(SITE_NAME)
+# http://celery.readthedocs.org/en/latest/userguide/tasks.html#disable-rate-limits-if-they-re-not-used
+CELERY_DISABLE_RATE_LIMITS = True
 
 from celery.schedules import crontab
 CELERYBEAT_SCHEDULE = {
