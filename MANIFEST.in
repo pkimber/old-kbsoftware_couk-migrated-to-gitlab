@@ -1,12 +1,10 @@
-recursive-include web/templates *
-recursive-include dash/templates *
 recursive-include project/static *
 recursive-include project/templates *
+recursive-include web/templates *
+recursive-include dash/templates *
 
 include LICENSE
 include manage.py
 include README
 include requirements/*.txt
 include *.txt
-
-prune example/

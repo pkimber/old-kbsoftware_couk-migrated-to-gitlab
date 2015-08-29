@@ -20,18 +20,8 @@ def get_readme():
 
 setup(
     name='kb-kbsoftware-couk',
-    packages=['settings', 'web', 'web.tests', 'dash', 'dash.tests', 'project', 'project.management', 'project.management.commands'],
+    packages=['project', 'project.migrations', 'project.management', 'project.management.commands', 'web', 'web.tests', 'dash', 'dash.tests', 'settings'],
     package_data={
-        'dash': [
-            'templates/*.*',
-            'templates/dash/*.*',
-        ],
-
-        'web': [
-            'templates/*.*',
-            'templates/web/*.*',
-        ],
-
         'project': [
             'static/*.*',
             'static/img/*.*',
@@ -39,11 +29,21 @@ setup(
             'templates/*.*',
             'templates/project/*.*',
         ],
+
+        'web': [
+            'templates/*.*',
+            'templates/web/*.*',
+        ],
+
+        'dash': [
+            'templates/*.*',
+            'templates/dash/*.*',
+        ],
     },
-    version='0.0.07',
+    version='0.0.08',
     description='KB Software Ltd',
-    author='Greg Bushell',
-    author_email='greg@kbsoftware.co.uk',
+    author='Patrick Kimber',
+    author_email='code@pkimber.net',
     url='git@github.com:pkimber/kbsoftware_couk.git',
     classifiers=[
         'Development Status :: 1 - Planning',
@@ -53,6 +53,8 @@ setup(
         'Natural Language :: English',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
+        'Programming Language :: Python :: 3',
+        'Framework :: Django :: 1.8',
         'Topic :: Office/Business :: Scheduling',
     ],
     long_description=get_readme(),
