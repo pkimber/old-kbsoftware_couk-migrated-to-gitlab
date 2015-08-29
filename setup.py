@@ -24,6 +24,7 @@ setup(
     package_data={
         'project': [
             'static/*.*',
+            'static/ico/*.*',
             'static/img/*.*',
             'static/img/project/*.*',
             'templates/*.*',
@@ -40,7 +41,7 @@ setup(
             'templates/dash/*.*',
         ],
     },
-    version='0.0.10',
+    version='0.0.11',
     description='KB Software Ltd',
     author='Patrick Kimber',
     author_email='code@pkimber.net',
