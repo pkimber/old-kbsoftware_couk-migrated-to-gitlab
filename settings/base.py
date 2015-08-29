@@ -1,6 +1,4 @@
 # -*- encoding: utf-8 -*-
-from __future__ import unicode_literals
-
 """
 Django settings for app project.
 """
@@ -108,6 +106,7 @@ STATICFILES_FINDERS = (
 SECRET_KEY = get_env_variable("SECRET_KEY")
 
 MIDDLEWARE_CLASSES = (
+    'opbeat.contrib.django.middleware.OpbeatAPMMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -156,6 +155,7 @@ DJANGO_APPS = (
 )
 
 THIRD_PARTY_APPS = (
+    'opbeat.contrib.django',
     'compressor',
     'reversion',
     #'django_extensions',
@@ -200,6 +200,12 @@ CELERYBEAT_SCHEDULE = {
 }
 
 CONTACT_MODEL = 'crm.Contact'
+
+OPBEAT = {
+    'ORGANIZATION_ID': get_env_variable('OPBEAT_ORGANIZATION_ID'),
+    'APP_ID': get_env_variable('OPBEAT_APP_ID'),
+    'SECRET_TOKEN': get_env_variable('OPBEAT_SECRET_TOKEN'),
+}
 
 LOGGING = {
     'version': 1,

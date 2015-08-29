@@ -11,3 +11,6 @@ DATABASES = {
         'PORT': '',
     }
 }
+
+
+OPBEAT['APP_ID'] = None
