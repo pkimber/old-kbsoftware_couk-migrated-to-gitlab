@@ -1,8 +1,8 @@
 -r base.txt
-kb-base==0.1.60
-kb-crm==0.1.16
+kb-base==0.1.67
+kb-crm==0.1.17
 kb-finance==0.1.04
-kb-invoice==0.1.22
-kb-login==0.1.34
-kb-mail==0.1.26
+kb-invoice==0.1.23
+kb-login==0.1.35
+kb-mail==0.1.27
 kb-search==0.1.17
