@@ -28,6 +28,7 @@ setup(
             'static/img/*.*',
             'static/img/project/*.*',
             'templates/*.*',
+            'templates/dash/*.*',
             'templates/project/*.*',
         ],
 
@@ -41,7 +42,7 @@ setup(
             'templates/dash/*.*',
         ],
     },
-    version='0.0.11',
+    version='0.0.12',
     description='KB Software Ltd',
     author='Patrick Kimber',
     author_email='code@pkimber.net',
