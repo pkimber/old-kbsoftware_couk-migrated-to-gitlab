@@ -157,6 +157,7 @@ DJANGO_APPS = (
 THIRD_PARTY_APPS = (
     'celery_haystack',
     'compressor',
+    'django_nvd3',
     'haystack',
     'opbeat.contrib.django',
     'rest_framework',
