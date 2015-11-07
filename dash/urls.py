@@ -4,7 +4,10 @@ from django.conf.urls import (
     url,
 )
 
-from .views import DashView
+from .views import (
+    DashView,
+    SettingsView,
+)
 
 
 urlpatterns = patterns(
@@ -14,7 +17,7 @@ urlpatterns = patterns(
         name='project.dash'
         ),
     url(regex=r'^settings/$',
-        view=DashView.as_view(),
+        view=SettingsView.as_view(),
         name='project.settings'
         ),
 )

@@ -15,3 +15,10 @@ class DashView(
         ReportMixin, BaseMixin, TemplateView):
 
     template_name = 'dash/dash.html'
+
+
+class SettingsView(
+        LoginRequiredMixin, StaffuserRequiredMixin,
+        ReportMixin, BaseMixin, TemplateView):
+
+    template_name = 'dash/settings.html'
