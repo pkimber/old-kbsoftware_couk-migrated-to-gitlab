@@ -176,6 +176,7 @@ LOCAL_APPS = (
     'login',
     'mail',
     'project',
+    'report',
     'search',
     'web',
 )

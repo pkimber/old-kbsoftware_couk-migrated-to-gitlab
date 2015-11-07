@@ -7,11 +7,11 @@ from braces.views import (
 )
 
 from base.view_utils import BaseMixin
-from invoice.views import DashMixin
+from report.views import ReportMixin
 
 
 class DashView(
         LoginRequiredMixin, StaffuserRequiredMixin,
-        DashMixin, BaseMixin, TemplateView):
+        ReportMixin, BaseMixin, TemplateView):
 
-    template_name = 'dash/home.html'
+    template_name = 'dash/dash.html'
