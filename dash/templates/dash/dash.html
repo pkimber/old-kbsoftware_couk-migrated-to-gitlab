@@ -20,14 +20,14 @@
     </div>
   </div>
   <div class="pure-g">
-    <div class="pure-u-1 pure-u-md-1-2">
-      <div class="l-box">
-        {% for r in report %}
+    {% for r in report %}
+      <div class="pure-u-1 pure-u-md-1-2">
+        <div class="l-box">
           <h4>{{ r.title }}</h4>
-          {% include_container r.chartcontainer 400 600 %}
-        {% endfor %}
+          {% include_container r.chartcontainer 300 350 %}
+        </div>
       </div>
-    </div>
+    {% endfor %}
   </div>
 {% endblock content %}
 
