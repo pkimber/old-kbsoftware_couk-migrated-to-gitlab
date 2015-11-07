@@ -13,4 +13,8 @@ urlpatterns = patterns(
         view=DashView.as_view(),
         name='project.dash'
         ),
+    url(regex=r'^settings/$',
+        view=DashView.as_view(),
+        name='project.settings'
+        ),
 )

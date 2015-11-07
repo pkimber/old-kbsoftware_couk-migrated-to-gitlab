@@ -12,7 +12,7 @@
 {% block sub_heading %}
 {% endblock sub_heading %}
 
-{% block menu %}
+{% block menu_dash %}
   {% if user.is_staff %}
     <li class="pure-menu-item {% if 'crm' in path %} pure-menu-selected{% endif %}">
       <a href="{% url 'crm.ticket.home' %}" class="pure-menu-link">
@@ -23,7 +23,7 @@
       <a href="{% url 'search.search' %}" class="pure-menu-link">Search</a>
     </li>
   {% endif %}
-{% endblock menu %}
+{% endblock menu_dash %}
 
 {% block footer %}
   <div class="legal pure-g">
