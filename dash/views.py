@@ -7,7 +7,11 @@ from braces.views import (
 )
 
 from base.view_utils import BaseMixin
-from crm.models import Ticket
+from crm.models import (
+    Note,
+    Ticket,
+)
+from invoice.models import TimeRecord
 from report.views import ReportMixin
 
 
@@ -21,7 +25,9 @@ class DashView(
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update(dict(
+            notes=Note.objects.order_by('-pk')[:10],
             tickets=Ticket.objects.order_by('-pk')[:10],
+            time_records=TimeRecord.objects.order_by('-pk')[:10],
         ))
         return context
 
