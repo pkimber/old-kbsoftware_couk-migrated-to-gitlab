@@ -1,6 +1,11 @@
 {% extends 'base/base.html' %}
 {% load staticfiles %}
 
+{% block stylesheets_extra %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'crm/css/crm.css' %}">
+{% endblock stylesheets_extra %}
+
 {% block title %}
   KB Software Ltd
 {% endblock title %}
