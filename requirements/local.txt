@@ -15,3 +15,4 @@ pytest-flakes
 pytest-pep8
 pytest-sugar
 pytest-watch
+sqlparse

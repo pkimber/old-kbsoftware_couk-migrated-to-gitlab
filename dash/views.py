@@ -13,6 +13,7 @@ from report.views import ReportMixin
 class DashView(
         LoginRequiredMixin, StaffuserRequiredMixin,
         ReportMixin, BaseMixin, TemplateView):
+    """Dashboard includes the report mixin."""
 
     template_name = 'dash/dash.html'
 
