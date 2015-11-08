@@ -7,6 +7,7 @@ from braces.views import (
 )
 
 from base.view_utils import BaseMixin
+from crm.models import Ticket
 from report.views import ReportMixin
 
 
@@ -16,6 +17,13 @@ class DashView(
     """Dashboard includes the report mixin."""
 
     template_name = 'dash/dash.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update(dict(
+            tickets=Ticket.objects.order_by('-pk')[:10],
+        ))
+        return context
 
 
 class SettingsView(
