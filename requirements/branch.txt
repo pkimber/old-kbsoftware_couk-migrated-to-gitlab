@@ -1,5 +1,6 @@
 base|1136-delete-image-from-library
-crm|master
+contact|master
+crm|717-django-mptt
 finance|master
 invoice|master
 login|master

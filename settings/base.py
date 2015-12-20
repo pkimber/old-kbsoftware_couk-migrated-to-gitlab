@@ -170,6 +170,7 @@ THIRD_PARTY_APPS = (
 
 LOCAL_APPS = (
     'base',
+    'contact',
     'crm',
     'dash',
     'finance',
