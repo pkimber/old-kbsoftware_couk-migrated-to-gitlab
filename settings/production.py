@@ -26,12 +26,14 @@ CELERYBEAT_SCHEDULE = {
     },
 }
 
+DOMAIN = get_env_variable('DOMAIN')
+DATABASE = DOMAIN.replace('.', '_')
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': '{}_test'.format(SITE_NAME) if TESTING else SITE_NAME,
-        'USER': SITE_NAME,
+        'NAME': DATABASE,
+        'USER': DATABASE,
         'PASSWORD': get_env_variable('DB_PASS'),
         'HOST': get_env_variable('DB_IP'),
         'PORT': '',
