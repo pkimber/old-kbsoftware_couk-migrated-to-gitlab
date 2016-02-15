@@ -1,4 +1,4 @@
-base|1136-delete-image-from-library
+base|master
 crm|master
 finance|master
 invoice|master
