@@ -24,3 +24,10 @@ DATABASES = {
 #         'PORT': '',
 #     }
 # }
+
+
+INSTALLED_APPS += (
+    'debug_toolbar',
+)
+
+OPBEAT['APP_ID'] = None

@@ -9,6 +9,7 @@
 -e ../../app/mail
 -e ../../app/report
 -e ../../app/search
+django-debug-toolbar
 factory-boy
 pytest-cov
 pytest-django
