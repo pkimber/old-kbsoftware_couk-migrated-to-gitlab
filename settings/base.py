@@ -160,6 +160,7 @@ THIRD_PARTY_APPS = (
     'compressor',
     'django_nvd3',
     'haystack',
+    'mptt',
     'opbeat.contrib.django',
     'rest_framework',
     # http://www.django-rest-framework.org/api-guide/authentication#tokenauthentication
