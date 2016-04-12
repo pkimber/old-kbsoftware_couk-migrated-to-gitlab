@@ -1,8 +1,8 @@
 base|master
 contact|master
-crm|717-django-mptt
+crm|master
 finance|master
-invoice|717-django-mptt
+invoice|master
 login|master
 mail|master
 report|master
