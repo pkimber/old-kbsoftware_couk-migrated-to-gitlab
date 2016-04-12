@@ -170,6 +170,7 @@ THIRD_PARTY_APPS = (
 
 LOCAL_APPS = (
     'base',
+    'contact',
     'crm',
     'dash',
     'finance',
@@ -184,8 +185,6 @@ LOCAL_APPS = (
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
-CONTACT_MODEL = 'crm.Contact'
-
 # URL where requests are redirected after login when the contrib.auth.login
 # view gets no next parameter.
 LOGIN_REDIRECT_URL = reverse_lazy('project.dash')
@@ -195,7 +194,7 @@ LOGIN_REDIRECT_URL = reverse_lazy('project.dash')
 # will be called.
 # LOGIN_URL = reverse_lazy('login.login')
 
-CONTACT_MODEL = 'crm.Contact'
+CONTACT_MODEL = 'contact.Contact'
 
 OPBEAT = {
     'ORGANIZATION_ID': get_env_variable('OPBEAT_ORGANIZATION_ID'),

@@ -33,7 +33,7 @@
           <a href="{% url 'crm.ticket.detail' ticket.pk %}">
             {{ ticket.title|truncatewords:5 }}
           </a>
-          ({{ ticket.contact.name|truncatewords:2 }})
+          ({{ ticket.contact.company_name|truncatewords:2 }})
           {% if not user == ticket.user %}
             (<strong>{{ ticket.user.username }}</strong>)
           {% endif %}
@@ -55,7 +55,7 @@
           <a href="{% url 'crm.ticket.detail' note.ticket.pk %}">
             ({{ note.ticket.title|truncatewords:2 }}
           </a>
-          {{ note.ticket.contact.name|truncatewords:2 }})
+          {{ note.ticket.contact.company_name|truncatewords:2 }})
           {% if not user == note.user %}
             (<strong>{{ note.user.username }}</strong>)
           {% endif %}
@@ -77,7 +77,7 @@
           <a href="{% url 'crm.ticket.detail' tr.ticket.pk %}">
             ({{ tr.ticket.title|truncatewords:2 }}
           </a>
-          {{ tr.ticket.contact.name|truncatewords:2 }})
+          {{ tr.ticket.contact.company_name|truncatewords:2 }})
           {% if not user == tr.user %}
             (<strong>{{ tr.user.username }}</strong>)
           {% endif %}
