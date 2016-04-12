@@ -5,7 +5,7 @@ from .local import *
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'test_kbsoftware_couk_malcolm',
+        'NAME': 'test_www_kbsoftware_co_uk_malcolm',
         'USER': '',
         'PASSWORD': '',
         'HOST': '',
@@ -24,3 +24,9 @@ DATABASES = {
 #        'PORT': '',
 #    }
 #}
+
+INSTALLED_APPS += (
+    'debug_toolbar',
+)
+
+OPBEAT['APP_ID'] = None
