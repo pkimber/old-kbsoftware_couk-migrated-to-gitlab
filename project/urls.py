@@ -41,6 +41,9 @@ urlpatterns = patterns(
     url(regex=r'^search/',
         view=include('search.urls')
         ),
+    url(regex=r'^stock/',
+        view=include('stock.urls')
+        ),
     url(regex=r'^token/$',
         view='rest_framework.authtoken.views.obtain_auth_token',
         name='api.token.auth',

@@ -180,6 +180,7 @@ LOCAL_APPS = (
     'project',
     'report',
     'search',
+    'stock',
     'web',
 )
 

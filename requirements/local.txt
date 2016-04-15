@@ -9,6 +9,7 @@
 -e ../../app/mail
 -e ../../app/report
 -e ../../app/search
+-e ../../app/stock
 factory-boy
 pytest-cov
 pytest-django
