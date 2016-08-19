@@ -47,4 +47,4 @@ Browse to http://localhost:8000/::
 Release and Deploy
 ==================
 
-https://pkimber.net/open/
+https://www.kbsoftware.co.uk/docs/

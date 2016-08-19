@@ -1,8 +1,5 @@
 # -*- encoding: utf-8 -*-
-from django.conf.urls import (
-    patterns,
-    url,
-)
+from django.conf.urls import url
 
 from .views import (
     DashView,
@@ -10,8 +7,7 @@ from .views import (
 )
 
 
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     url(regex=r'^$',
         view=DashView.as_view(),
         name='project.dash'
@@ -20,4 +16,4 @@ urlpatterns = patterns(
         view=SettingsView.as_view(),
         name='project.settings'
         ),
-)
+]
