@@ -1,18 +1,17 @@
 # -*- encoding: utf-8 -*-
-from django.views.generic import TemplateView
-
-from braces.views import (
-    LoginRequiredMixin,
-    StaffuserRequiredMixin,
-)
+from braces.views import LoginRequiredMixin, StaffuserRequiredMixin
+from django.views.generic import DetailView, TemplateView
 
 from base.view_utils import BaseMixin
-from crm.models import (
-    Note,
-    Ticket,
-)
+from contact.views import ContactDetailMixin
+from crm.models import Note, Ticket
 from invoice.models import TimeRecord
 from report.views import ReportMixin
+
+
+class ContactDetailView(
+        LoginRequiredMixin, ContactDetailMixin, BaseMixin, DetailView):
+    pass
 
 
 class DashView(

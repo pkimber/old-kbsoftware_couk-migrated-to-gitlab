@@ -1,16 +1,28 @@
 # -*- encoding: utf-8 -*-
-from __future__ import unicode_literals
+import pytest
 
 from django.core.urlresolvers import reverse
 
-from base.tests.test_utils import PermTestCase
-from login.tests.scenario import default_scenario_login
+from contact.tests.factories import UserContactFactory
+from login.tests.fixture import perm_check
+from login.tests.scenario import get_user_web
 
 
-class TestViewPerm(PermTestCase):
+@pytest.mark.django_db
+def test_contact_detail(perm_check):
+    UserContactFactory(user=get_user_web())
+    user_contact = UserContactFactory()
+    url = reverse('contact.detail', args=[user_contact.contact.user.username])
+    perm_check.staff(url)
 
-    def setUp(self):
-        default_scenario_login()
 
-    def test_dash(self):
-        self._assert_staff(reverse('project.dash'))
+@pytest.mark.django_db
+def test_dash(perm_check):
+    url = reverse('project.dash')
+    perm_check.staff(url)
+
+
+@pytest.mark.django_db
+def test_settings(perm_check):
+    url = reverse('project.settings')
+    perm_check.staff(url)
