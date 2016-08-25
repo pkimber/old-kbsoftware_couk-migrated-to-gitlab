@@ -5,7 +5,7 @@ from .local import *
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'test_www_kbsoftware_co_uk_malcolm',
+        'NAME': 'dev_www_kbsoftware_co_uk_malcolm',
         'USER': '',
         'PASSWORD': '',
         'HOST': '',
