@@ -13,6 +13,7 @@ ALLOWED_HOSTS = [get_env_variable('ALLOWED_HOSTS'), ]
 # Celery
 BROKER_URL = 'redis://localhost:6379/0'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+CELERYD_CONCURRENCY = 1
 # https://kfalck.net/2013/02/21/run-multiple-celeries-on-a-single-redis
 CELERY_DEFAULT_QUEUE = '{}'.format(SITE_NAME)
 # http://celery.readthedocs.org/en/latest/userguide/tasks.html#disable-rate-limits-if-they-re-not-used
