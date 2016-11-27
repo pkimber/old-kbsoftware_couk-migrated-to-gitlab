@@ -9,8 +9,10 @@
 -e ../../app/mail
 -e ../../app/report
 -e ../../app/search
+-e ../../app/stock
 django-debug-toolbar
 factory-boy
+ipdb
 pytest-cov
 pytest-django
 pytest-flakes

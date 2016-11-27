@@ -181,6 +181,7 @@ LOCAL_APPS = (
     'project',
     'report',
     'search',
+    'stock',
     'web',
 )
 
@@ -227,10 +228,6 @@ LOGGING = {
         },
     },
     'handlers': {
-        'null': {
-            'level':'DEBUG',
-                'class':'django.utils.log.NullHandler',
-        },
         'logfile': {
             'level':'DEBUG',
             'class':'logging.handlers.RotatingFileHandler',

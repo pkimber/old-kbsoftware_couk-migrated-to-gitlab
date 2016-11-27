@@ -18,10 +18,9 @@ Virtual Environment
 
 ::
 
-  pyvenv-3.4 --without-pip venv-kbsoftware_couk
+  virtualenv --python=python3 venv-kbsoftware_couk
   source venv-kbsoftware_couk/bin/activate
-  wget https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py
-  python get-pip.py
+  pip install --upgrade pip
 
   pip install -r requirements/local.txt
 
@@ -48,4 +47,4 @@ Browse to http://localhost:8000/::
 Release and Deploy
 ==================
 
-https://pkimber.net/open/
+https://www.kbsoftware.co.uk/docs/

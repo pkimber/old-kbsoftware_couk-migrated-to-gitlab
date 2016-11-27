@@ -25,9 +25,13 @@ DATABASES = {
 #     }
 # }
 
-
+# Django debug toolbar
 INSTALLED_APPS += (
     'debug_toolbar',
 )
-
+INTERNAL_IPS = ('127.0.0.1',)
+DEBUG_TOOLBAR_CONFIG = {
+    'INTERCEPT_REDIRECTS': False,
+    'ENABLE_STACKTRACES': True,
+}
 OPBEAT['APP_ID'] = None
