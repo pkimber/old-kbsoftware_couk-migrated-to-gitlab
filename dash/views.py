@@ -16,12 +16,19 @@ class ContactDetailView(
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        # crm
         try:
             crm_contact = self.object.crmcontact
         except ObjectDoesNotExist:
             crm_contact = None
+        # invoice
+        try:
+            invoice_contact = self.object.invoicecontact
+        except ObjectDoesNotExist:
+            invoice_contact = None
         context.update(dict(
             crm_contact=crm_contact,
+            invoice_contact=invoice_contact,
         ))
         return context
 
