@@ -20,7 +20,6 @@ Virtual Environment
 
   virtualenv --python=python3 venv-kbsoftware_couk
   source venv-kbsoftware_couk/bin/activate
-  pip install --upgrade pip
 
   pip install -r requirements/local.txt
 
