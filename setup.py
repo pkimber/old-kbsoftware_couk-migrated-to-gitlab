@@ -20,7 +20,7 @@ def get_readme():
 
 setup(
     name='kb-kbsoftware-couk',
-    packages=['project', 'project.migrations', 'project.management', 'project.management.commands', 'web', 'web.tests', 'dash', 'dash.tests', 'settings'],
+    packages=['web', 'web.tests', 'project', 'project.management', 'project.management.commands', 'project.migrations', 'dash', 'dash.tests', 'settings'],
     package_data={
         'project': [
             'static/*.*',
@@ -28,7 +28,6 @@ setup(
             'static/img/*.*',
             'static/img/project/*.*',
             'templates/*.*',
-            'templates/dash/*.*',
             'templates/project/*.*',
         ],
 
@@ -39,10 +38,11 @@ setup(
 
         'dash': [
             'templates/*.*',
+            'templates/contact/*.*',
             'templates/dash/*.*',
         ],
     },
-    version='0.0.18',
+    version='0.0.20',
     description='KB Software Ltd',
     author='Patrick Kimber',
     author_email='code@pkimber.net',

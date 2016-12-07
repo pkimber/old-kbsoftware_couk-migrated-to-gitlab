@@ -57,20 +57,30 @@
             <td></td>
           </tr>
           {% endif %}
-          {% if crm_contact %}
-            <tr>
-              <td>Industry</td>
-              <td>
-                <a href="{% url 'crm.contact.update' contact.user.username %}">
-                  <i class="fa fa-edit"></i>
-                  {% if crm_contact.industry %}
-                    {{ crm_contact.industry.name }}</td>
-                  {% endif %}
-                </a>
-              <td>
+          <tr>
+            <td>Industry</td>
+            <td>
+              <a href="{% url 'crm.contact.update' contact.user.username %}">
+                <i class="fa fa-edit"></i>
+                {% if crm_contact.industry %}
+                  {{ crm_contact.industry.name }}
+                {% endif %}
+              </a>
             </td>
-            </tr>
-          {% endif %}
+            <td>
+          </td>
+          </tr>
+          <tr>
+            <td>Hourly Rate</td>
+            <td>
+              <a href="{% url 'invoice.contact.update' contact.user.username %}">
+                <i class="fa fa-edit"></i>
+                {{ invoice_contact.hourly_rate }}
+              </a>
+            </td>
+            <td>
+          </td>
+          </tr>
           {% if contact.ticket_set.all %}
           <tr>
             <td><strong>Tickets</strong></td>

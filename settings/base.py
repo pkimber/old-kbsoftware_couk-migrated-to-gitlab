@@ -99,7 +99,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     #'django.contrib.staticfiles.finders.DefaultStorageFinder',
-    'compressor.finders.CompressorFinder',
 )
 
 # Make this unique, and don't share it with anybody.
@@ -157,9 +156,9 @@ DJANGO_APPS = (
 
 THIRD_PARTY_APPS = (
     'celery_haystack',
-    'compressor',
     'django_nvd3',
     'haystack',
+    # 'mptt',
     'opbeat.contrib.django',
     'rest_framework',
     # http://www.django-rest-framework.org/api-guide/authentication#tokenauthentication
