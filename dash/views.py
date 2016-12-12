@@ -1,36 +1,22 @@
 # -*- encoding: utf-8 -*-
 from braces.views import LoginRequiredMixin, StaffuserRequiredMixin
+from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
-from django.views.generic import DetailView, TemplateView
+from django.views.generic import DetailView, ListView, TemplateView
 
 from base.view_utils import BaseMixin
-from contact.views import ContactDetailMixin
 from crm.models import Note, Ticket
 from crm.service import get_contact_model
+from crm.views import CrmContactDetailMixin
 from invoice.models import TimeRecord
 from report.views import ReportMixin
 
 
 class ContactDetailView(
-        LoginRequiredMixin, ContactDetailMixin, BaseMixin, DetailView):
+        LoginRequiredMixin, StaffuserRequiredMixin,
+        CrmContactDetailMixin, BaseMixin, DetailView):
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        # crm
-        try:
-            crm_contact = self.object.crmcontact
-        except ObjectDoesNotExist:
-            crm_contact = None
-        # invoice
-        try:
-            invoice_contact = self.object.invoicecontact
-        except ObjectDoesNotExist:
-            invoice_contact = None
-        context.update(dict(
-            crm_contact=crm_contact,
-            invoice_contact=invoice_contact,
-        ))
-        return context
+    template_name = 'crm/contact_detail.html'
 
 
 class DashView(
