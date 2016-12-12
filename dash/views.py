@@ -16,7 +16,7 @@ class ContactDetailView(
         LoginRequiredMixin, StaffuserRequiredMixin,
         CrmContactDetailMixin, BaseMixin, DetailView):
 
-    template_name = 'crm/contact_detail.html'
+    template_name = 'contact/contact_detail.html'
 
 
 class DashView(
