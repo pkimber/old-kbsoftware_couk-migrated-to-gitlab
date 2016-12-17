@@ -17,7 +17,7 @@
     <div class="pure-u-1">
       <div class="pure-menu pure-menu-horizontal">
         <ul class="pure-menu-list">
-          {% include 'crm/_menu.html' %}
+          {% include 'crm/_menu_ticket.html' %}
         </ul>
       </div>
     </div>
@@ -35,7 +35,9 @@
           </a>
           ({{ ticket.contact.company_name|truncatewords:2 }})
           {% if not user == ticket.user %}
-            (<strong>{{ ticket.user.username }}</strong>)
+            <a href="{% url 'invoice.time.summary.user' ticket.user.username %}">
+              ({{ ticket.user.username }})
+            </a>
           {% endif %}
           ({{ ticket.created|naturaltime }})
           <br>
@@ -57,7 +59,9 @@
           </a>
           {{ note.ticket.contact.company_name|truncatewords:2 }})
           {% if not user == note.user %}
-            (<strong>{{ note.user.username }}</strong>)
+            <a href="{% url 'invoice.time.summary.user' note.user.username %}">
+              ({{ note.user.username }})
+            </a>
           {% endif %}
           ({{ note.created|naturaltime }})
           <br>
@@ -79,7 +83,9 @@
           </a>
           {{ tr.ticket.contact.company_name|truncatewords:2 }})
           {% if not user == tr.user %}
-            (<strong>{{ tr.user.username }}</strong>)
+            <a href="{% url 'invoice.time.summary.user' tr.user.username %}">
+              ({{ tr.user.username }})
+            </a>
           {% endif %}
           ({{ tr.created|naturaltime }})
           <br>
@@ -96,7 +102,11 @@
         <div class="pure-g">
           <div class="pure-u-1">
             {% if r.user %}
-              <h4>{{ r.user.username }}</h4>
+              <h4>
+                <a href="{% url 'invoice.time.summary.user' r.user.username %}">
+                  {{ r.user.username }}
+                </a>
+              </h4>
             {% else %}
               <h4>Our Company</h4>
             {% endif %}
