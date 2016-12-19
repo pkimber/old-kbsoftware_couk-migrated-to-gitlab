@@ -5,9 +5,9 @@
     <td>Industry</td>
     <td>
       {% if crm_contact %}
-        <a href="{% url 'crm.contact.update' contact.user.username %}">
+        <a href="{% url 'crm.contact.update' crm_contact.pk %}">
       {% else %}
-        <a href="{% url 'crm.contact.create' contact.user.username %}">
+        <a href="{% url 'crm.contact.create' contact.pk %}">
       {% endif %}
         <i class="fa fa-edit"></i>
         {% if crm_contact.industry %}
@@ -22,9 +22,9 @@
     <td>Rate</td>
     <td>
       {% if invoice_contact %}
-        <a href="{% url 'invoice.contact.update' contact.user.username %}">
+        <a href="{% url 'invoice.contact.update' invoice_contact.pk %}">
       {% else %}
-        <a href="{% url 'invoice.contact.create' contact.user.username %}">
+        <a href="{% url 'invoice.contact.create' contact.pk %}">
       {% endif %}
         <i class="fa fa-edit"></i>
         {% if invoice_contact.hourly_rate %}

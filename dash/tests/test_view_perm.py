@@ -12,7 +12,7 @@ from login.tests.scenario import get_user_web
 def test_contact_detail(perm_check):
     UserContactFactory(user=get_user_web())
     user_contact = UserContactFactory()
-    url = reverse('contact.detail', args=[user_contact.contact.user.username])
+    url = reverse('contact.detail', args=[user_contact.contact.pk])
     perm_check.staff(url)
 
 

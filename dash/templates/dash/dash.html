@@ -35,7 +35,7 @@
           </a>
           ({{ ticket.contact.company_name|truncatewords:2 }})
           {% if not user == ticket.user %}
-            <a href="{% url 'invoice.time.summary.user' ticket.user.username %}">
+            <a href="{% url 'invoice.time.summary.user' ticket.user.pk %}">
               ({{ ticket.user.username }})
             </a>
           {% endif %}
@@ -59,7 +59,7 @@
           </a>
           {{ note.ticket.contact.company_name|truncatewords:2 }})
           {% if not user == note.user %}
-            <a href="{% url 'invoice.time.summary.user' note.user.username %}">
+            <a href="{% url 'invoice.time.summary.user' note.user.pk %}">
               ({{ note.user.username }})
             </a>
           {% endif %}
@@ -83,7 +83,7 @@
           </a>
           {{ tr.ticket.contact.company_name|truncatewords:2 }})
           {% if not user == tr.user %}
-            <a href="{% url 'invoice.time.summary.user' tr.user.username %}">
+            <a href="{% url 'invoice.time.summary.user' tr.user.pk %}">
               ({{ tr.user.username }})
             </a>
           {% endif %}
@@ -103,7 +103,7 @@
           <div class="pure-u-1">
             {% if r.user %}
               <h4>
-                <a href="{% url 'invoice.time.summary.user' r.user.username %}">
+                <a href="{% url 'invoice.time.summary.user' r.user.pk %}">
                   {{ r.user.username }}
                 </a>
               </h4>
