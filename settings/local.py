@@ -17,6 +17,7 @@ HAYSTACK_CONNECTIONS = {
         'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
     },
 }
+HAYSTACK_SIGNAL_PROCESSOR = 'celery_haystack.signals.CelerySignalProcessor'
 
 # https://docs.djangoproject.com/en/1.5/howto/static-files/#serving-files-uploaded-by-a-user
 MEDIA_ROOT = 'media'

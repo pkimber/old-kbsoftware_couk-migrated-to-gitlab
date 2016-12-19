@@ -183,6 +183,8 @@ LOCAL_APPS = (
     'web',
 )
 
+DEFAULT_FROM_EMAIL = 'donotreply@kbsoftware.co.uk'
+
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 # URL where requests are redirected after login when the contrib.auth.login
@@ -196,11 +198,21 @@ LOGIN_REDIRECT_URL = reverse_lazy('project.dash')
 
 CONTACT_MODEL = 'contact.Contact'
 
+# sparkpost
+EMAIL_BACKEND = 'sparkpost.django.email_backend.SparkPostEmailBackend'
+SPARKPOST_API_KEY = get_env_variable('SPARKPOST_API_KEY')
+SPARKPOST_OPTIONS = {
+    'track_opens': False,
+    'track_clicks': False,
+    'transactional': True,
+}
+
 OPBEAT = {
     'ORGANIZATION_ID': get_env_variable('OPBEAT_ORGANIZATION_ID'),
     'APP_ID': get_env_variable('OPBEAT_APP_ID'),
     'SECRET_TOKEN': get_env_variable('OPBEAT_SECRET_TOKEN'),
 }
+
 
 # http://www.django-rest-framework.org/api-guide/authentication#tokenauthentication
 REST_FRAMEWORK = {

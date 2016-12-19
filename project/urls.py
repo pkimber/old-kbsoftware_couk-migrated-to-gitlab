@@ -35,6 +35,9 @@ urlpatterns = [
     url(regex=r'^invoice/',
         view=include('invoice.urls')
         ),
+    url(regex=r'^mail/',
+        view=include('mail.urls')
+        ),
     url(regex=r'^search/',
         view=include('search.urls')
         ),

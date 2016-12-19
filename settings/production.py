@@ -10,23 +10,6 @@ if get_env_variable_bool('SSL'):
 
 ALLOWED_HOSTS = [get_env_variable('ALLOWED_HOSTS'), ]
 
-# Celery
-BROKER_URL = 'redis://localhost:6379/0'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
-CELERYD_CONCURRENCY = 1
-# https://kfalck.net/2013/02/21/run-multiple-celeries-on-a-single-redis
-CELERY_DEFAULT_QUEUE = '{}'.format(SITE_NAME)
-# http://celery.readthedocs.org/en/latest/userguide/tasks.html#disable-rate-limits-if-they-re-not-used
-CELERY_DISABLE_RATE_LIMITS = True
-
-from celery.schedules import crontab
-CELERYBEAT_SCHEDULE = {
-    'update_search_index': {
-        'task': 'search.tasks.update_search_index',
-        'schedule': crontab(minute='15', hour='*/1'),
-    },
-}
-
 DOMAIN = get_env_variable('DOMAIN')
 DATABASE = DOMAIN.replace('.', '_')
 
@@ -39,6 +22,40 @@ DATABASES = {
         'HOST': get_env_variable('DB_IP'),
         'PORT': '',
     }
+}
+
+# Celery
+from kombu import Exchange, Queue
+# transport
+BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+# number of worker processes (will be 3 == controller, worker and beat)
+CELERYD_CONCURRENCY = 1
+# rate limits
+CELERY_DISABLE_RATE_LIMITS = True
+# serializer
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_ACCEPT_CONTENT = ['json']
+# queue
+CELERY_DEFAULT_QUEUE = DATABASE
+CELERY_QUEUES = (
+    Queue(DATABASE, Exchange(DATABASE), routing_key=DATABASE),
+)
+
+from celery.schedules import crontab
+CELERYBEAT_SCHEDULE = {
+    'mail_time_summary': {
+        'task': 'invoice.tasks.mail_time_summary',
+        'schedule': crontab(minute='30', hour='5'),
+    },
+    'process_mail': {
+        'task': 'mail.tasks.process_mail',
+        'schedule': crontab(minute='1', hour='*/1'),
+    },
+    'update_search_index': {
+        'task': 'search.tasks.update_search_index',
+        'schedule': crontab(minute='15', hour='*/1'),
+    },
 }
 
 FTP_STATIC_DIR = None
