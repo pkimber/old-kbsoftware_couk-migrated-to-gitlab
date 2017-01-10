@@ -1,11 +1,12 @@
 # -*- encoding: utf-8 -*-
 from .local import *
 
+DATABASE = 'dev_www_kbsoftware_co_uk_malcolm'
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dev_www_kbsoftware_co_uk_malcolm',
+        'NAME': DATABASE,
         'USER': '',
         'PASSWORD': '',
         'HOST': '',
@@ -13,17 +14,6 @@ DATABASES = {
     }
 }
 
-
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': 'temp.db',
-#        'USER': '',
-#        'PASSWORD': '',
-#        'HOST': '',
-#        'PORT': '',
-#    }
-#}
 
 INSTALLED_APPS += (
     'debug_toolbar',
