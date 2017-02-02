@@ -19,15 +19,23 @@
 
 {% block menu_dash %}
   {% if user.is_staff %}
-    <li class="pure-menu-item {% if 'crm' in path %} pure-menu-selected{% endif %}">
-      <a href="{% url 'crm.ticket.home' %}" class="pure-menu-link">
-        CRM
-      </a>
-    </li>
-    <li class="pure-menu-item{% if 'search' in path %} pure-menu-selected{% endif %}">
-      <a href="{% url 'search.search' %}" class="pure-menu-link">Search</a>
-    </li>
+  <li class="pure-menu-item {% if 'crm' in path %} pure-menu-selected{% endif %}">
+    <a href="{% url 'crm.ticket.home' %}" class="pure-menu-link">
+      CRM Tasks
+    </a>
+  </li>
+  <li class="pure-menu-item {% if 'invoice/time/summary' in path %} pure-menu-selected{% endif %}">
+    <a href="{% url 'invoice.time.summary' %}" class="pure-menu-link">
+      CRM Time
+    </a>
+  </li>
+  <li class="pure-menu-item{% if 'search' in path %} pure-menu-selected{% endif %}">
+    <a href="{% url 'search.search' %}" class="pure-menu-link">Search</a>
+  </li>
   {% endif %}
+  <li class="pure-menu-item">
+    <a href="/docs/" class="pure-menu-link">Documentation</a>
+  </li>
 {% endblock menu_dash %}
 
 {% block footer %}
