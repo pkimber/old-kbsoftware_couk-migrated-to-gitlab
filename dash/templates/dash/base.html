@@ -21,12 +21,12 @@
   {% if user.is_staff %}
   <li class="pure-menu-item {% if 'crm' in path %} pure-menu-selected{% endif %}">
     <a href="{% url 'crm.ticket.home' %}" class="pure-menu-link">
-      CRM Tasks
+      Tasks
     </a>
   </li>
   <li class="pure-menu-item {% if 'invoice/time/summary' in path %} pure-menu-selected{% endif %}">
     <a href="{% url 'invoice.time.summary' %}" class="pure-menu-link">
-      CRM Time
+      Time
     </a>
   </li>
   <li class="pure-menu-item{% if 'search' in path %} pure-menu-selected{% endif %}">
