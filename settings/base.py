@@ -170,7 +170,9 @@ THIRD_PARTY_APPS = (
 
 LOCAL_APPS = (
     'base',
+    'block',
     'contact',
+    'compose',
     'crm',
     'dash',
     'finance',
