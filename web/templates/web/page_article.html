@@ -1,0 +1,17 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% load block_tags %}
+{% load thumbnail %}
+
+{% block content %}
+  {% include 'compose/slideshow.html' %}
+  <div class="pure-g">
+    <div class="pure-u-1" >
+      {% for b in body_list %}
+        {% include 'web/_article_block.html' with allow_image_float=True heading_level='h1' %}
+      {% endfor %}
+    </div>
+  </div>
+  {% if design %}{% block_add body_create_url 'Article' %}{% endif %}
+  {% include 'compose/features.html' with feature_outer_class="pure-u-1-2 pure-u-md-1-4" %}
+{% endblock %}

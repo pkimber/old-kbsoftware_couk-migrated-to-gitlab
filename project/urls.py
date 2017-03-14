@@ -14,14 +14,20 @@ urlpatterns = [
     url(regex=r'^',
         view=include('login.urls')
         ),
-    url(regex=r'^',
-        view=include('web.urls')
-        ),
+    # url(regex=r'^',
+    #     view=include('web.urls')
+    #     ),
     url(regex=r'^admin/',
         view=include(admin.site.urls)
         ),
     url(regex=r'^api/0.1/',
         view=include('crm.urls_api')
+        ),
+    url(regex=r'^block/',
+        view=include('block.urls.block')
+        ),
+    url(regex=r'^compose/',
+        view=include('compose.urls.compose')
         ),
     url(regex=r'^contact/',
         view=include('contact.urls')
@@ -48,6 +54,13 @@ urlpatterns = [
         view=views.obtain_auth_token,
         name='api.token.auth',
         ),
+    url(regex=r'^wizard/',
+        view=include('block.urls.wizard')
+        ),
+    # this url include should come last
+    url(regex=r'^',
+        view=include('block.urls.cms')
+        ),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
@@ -59,4 +72,3 @@ if settings.DEBUG:
     urlpatterns += [
         url(r'^__debug__/', include(debug_toolbar.urls)),
     ]
-
