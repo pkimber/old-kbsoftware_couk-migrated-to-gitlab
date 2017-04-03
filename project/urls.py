@@ -48,6 +48,9 @@ urlpatterns = [
         view=views.obtain_auth_token,
         name='api.token.auth',
         ),
+    url(regex=r'^wizard/',
+        view=include('block.urls.wizard')
+        ),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
@@ -59,4 +62,3 @@ if settings.DEBUG:
     urlpatterns += [
         url(r'^__debug__/', include(debug_toolbar.urls)),
     ]
-

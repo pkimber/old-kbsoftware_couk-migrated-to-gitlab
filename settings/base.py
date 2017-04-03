@@ -158,6 +158,7 @@ DJANGO_APPS = (
 THIRD_PARTY_APPS = (
     'celery_haystack',
     'django_nvd3',
+    'easy_thumbnails',
     'haystack',
     # 'mptt',
     'opbeat.contrib.django',
@@ -166,10 +167,12 @@ THIRD_PARTY_APPS = (
     'rest_framework.authtoken',
     'reversion',
     #'django_extensions',
+    'taggit',
 )
 
 LOCAL_APPS = (
     'base',
+    'block',
     'contact',
     'crm',
     'dash',

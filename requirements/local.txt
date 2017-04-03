@@ -1,6 +1,7 @@
 -r base.txt
 -e .
 -e ../../app/base
+-e ../../app/block
 -e ../../app/contact
 -e ../../app/crm
 -e ../../app/finance
