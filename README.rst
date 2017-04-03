@@ -4,6 +4,11 @@ kbsoftware.co.uk
 WIP
 ===
 
+To remove all traces of ``block`` tables (before re-instating them)::
+
+  django-admin.py migrate block zero
+  django-admin.py migrate block zero --fake
+
 For notes on removing the ``Contact`` model from ``crm`` and using the
 ``contact`` app instead, see https://www.kbsoftware.co.uk/crm/ticket/717/
 
