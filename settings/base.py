@@ -165,11 +165,13 @@ THIRD_PARTY_APPS = (
     # http://www.django-rest-framework.org/api-guide/authentication#tokenauthentication
     'rest_framework.authtoken',
     'reversion',
+    'taggit',
     #'django_extensions',
 )
 
 LOCAL_APPS = (
     'base',
+    'block',
     'contact',
     'crm',
     'dash',
