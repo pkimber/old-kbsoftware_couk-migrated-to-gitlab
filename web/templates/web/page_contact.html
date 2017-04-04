@@ -12,7 +12,7 @@
       {% for b in body_list %}
           {% include 'web/_article_block.html' with allow_image_float=True heading_level='h1' %}
       {% endfor %}
-      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2525.0233443172456!2d-3.4959503!3d50.7380559!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x90212cfbd4b3d2d9!2sSt+James+School!5e0!3m2!1sen!2suk!4v1473088116331" width="95%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+	  {# <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2525.0233443172456!2d-3.4959503!3d50.7380559!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x90212cfbd4b3d2d9!2sSt+James+School!5e0!3m2!1sen!2suk!4v1473088116331" width="95%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> #}
       {% if design %}{% block_add body_create_url 'Article' %}{% endif %}
       </div>
     </div>

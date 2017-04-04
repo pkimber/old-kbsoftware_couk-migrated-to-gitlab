@@ -168,6 +168,7 @@ THIRD_PARTY_APPS = (
     'rest_framework.authtoken',
     'reversion',
     #'django_extensions',
+    'taggit',
 )
 
 LOCAL_APPS = (
