@@ -579,4 +579,5 @@ xl	@media screen and (min-width: 80em)	â‰¥ 1280px	.pure-u-xl-*
   .links-padding-wide:nth-child(3n) {padding:0 0 0 10px;}
   .pure-menu-item { margin:0; }
   .icon-bar { margin-top: 0;}
+  .page-logo { width: auto; max-height: 100px;}
 }

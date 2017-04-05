@@ -28,14 +28,6 @@ INSTALLED_APPS += (
     'debug_toolbar',
 )
 
-#force the debug toolbar to be displayed
-def show_toolbar(request):
-    return True
-
-DEBUG_TOOLBAR_CONFIG = {
-    "SHOW_TOOLBAR_CALLBACK" : show_toolbar,
-}
-
 # Celery
 # transport
 BROKER_URL = 'redis://localhost:6379/0'
@@ -70,4 +62,6 @@ ALLOWED_HOSTS = [
     'localhost',
     socket.gethostbyname(socket.gethostname())
 ]
+
+INTERNAL_IPS = ['127.0.0.1']
 
