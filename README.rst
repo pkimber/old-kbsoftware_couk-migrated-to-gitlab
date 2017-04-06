@@ -24,8 +24,7 @@ Restore a copy of the existing site and migrate::
 
 Load the block and compose data::
 
-  django-admin loaddata project/tests/data/block.json
-  django-admin loaddata project/tests/data/compose.json
+  django-admin loaddata project/tests/data/block_compose.json
 
 Extract the demo media files::
 
