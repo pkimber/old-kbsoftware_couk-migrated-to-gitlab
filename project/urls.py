@@ -14,9 +14,6 @@ urlpatterns = [
     url(regex=r'^',
         view=include('login.urls')
         ),
-    # url(regex=r'^',
-    #     view=include('web.urls')
-    #     ),
     url(regex=r'^admin/',
         view=include(admin.site.urls)
         ),

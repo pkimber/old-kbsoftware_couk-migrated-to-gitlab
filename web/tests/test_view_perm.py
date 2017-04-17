@@ -1,22 +1,28 @@
 # -*- encoding: utf-8 -*-
-from __future__ import unicode_literals
+import pytest
 
 from django.core.urlresolvers import reverse
 
-from base.tests.test_utils import PermTestCase
-from login.tests.scenario import default_scenario_login
+from block.tests.factories import PageFactory, TemplateFactory
+from login.tests.fixture import perm_check
 
 
-class TestViewPerm(PermTestCase):
+@pytest.mark.django_db
+def test_dash(perm_check):
+    perm_check.staff(reverse('project.dash'))
 
-    def setUp(self):
-        default_scenario_login()
 
-    def test_dash(self):
-        self._assert_staff(reverse('project.dash'))
+@pytest.mark.django_db
+def test_home(perm_check):
+    PageFactory(
+        slug='home',
+        slug_menu='',
+        is_home=True,
+        template=TemplateFactory(template_name='web/page_article.html'),
+    )
+    perm_check.anon(reverse('project.home'))
 
-    def test_home(self):
-        self.assert_any(reverse('project.home'))
 
-    def test_login(self):
-        self.assert_any(reverse('login'))
+@pytest.mark.django_db
+def test_login(perm_check):
+    perm_check.anon(reverse('login'))

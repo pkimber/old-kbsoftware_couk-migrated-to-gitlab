@@ -158,7 +158,6 @@ DJANGO_APPS = (
 THIRD_PARTY_APPS = (
     'captcha',
     'celery_haystack',
-    'django_nvd3',
     'easy_thumbnails',
     'haystack',
     # 'mptt',
