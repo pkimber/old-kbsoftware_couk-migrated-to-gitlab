@@ -8,6 +8,8 @@ TESTING = False
 SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = False
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 # FTP upload 'static' folder
 FTP_STATIC_DIR = None
 FTP_STATIC_URL = None
@@ -33,4 +35,4 @@ MEDIA_ROOT = 'media'
 SENDFILE_BACKEND = 'sendfile.backends.development'
 SENDFILE_ROOT = 'media-private'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+THUMBNAIL_DEBUG = DEBUG

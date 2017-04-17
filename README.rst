@@ -19,7 +19,6 @@ Pull the latest source from the repository, then refresh the VE ::
 Restore a copy of the existing site and migrate::
 
   django-admin migrate block zero --fake
-
   django-admin migrate
 
 Load the block and compose data::
@@ -30,7 +29,7 @@ Extract the demo media files::
 
   tar -xvzf project/tests/data/media-files.tar.gz
 
-Run the project 
+Run the project::
 
   django-admin runserver 0.0.0.0:8000
 
@@ -42,9 +41,16 @@ Then on the mobile device enter::
 
   <ip address>:8000
 
-
 Contact App
 -----------
+
+.. note:: This information is probably duplicated above.
+
+To remove all traces of ``block`` tables (before re-instating them)::
+
+  django-admin.py migrate block zero
+  django-admin.py migrate block zero --fake
+
 For notes on removing the ``Contact`` model from ``crm`` and using the
 ``contact`` app instead, see https://www.kbsoftware.co.uk/crm/ticket/717/
 
