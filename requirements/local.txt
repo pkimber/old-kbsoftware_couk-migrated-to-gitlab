@@ -3,6 +3,7 @@
 -e ../../app/base
 -e ../../app/block
 -e ../../app/contact
+-e ../../app/compose
 -e ../../app/crm
 -e ../../app/finance
 -e ../../app/invoice

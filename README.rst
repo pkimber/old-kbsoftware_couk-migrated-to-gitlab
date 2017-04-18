@@ -4,6 +4,48 @@ kbsoftware.co.uk
 WIP
 ===
 
+Add cms branch
+--------------
+
+Please note: The site previously used the block app, this was partially removed.
+To correct we need to fake remove the migrations see below
+
+Pull the latest source from the repository, then refresh the VE ::
+
+  rm -r venv-*     # Make sure there is not space between the - and the *
+  create-venv kbs
+  cd .
+
+Restore a copy of the existing site and migrate::
+
+  django-admin migrate block zero --fake
+  django-admin migrate
+
+Load the block and compose data::
+
+  django-admin loaddata project/tests/data/block_compose.json
+
+Extract the demo media files::
+
+  tar -xvzf project/tests/data/media-files.tar.gz
+
+Run the project::
+
+  django-admin runserver 0.0.0.0:8000
+
+You can view the site on mobile by finding your ip address::
+
+  ip addr
+
+Then on the mobile device enter::
+
+  <ip address>:8000
+
+Contact App
+-----------
+
+.. note:: This information is probably duplicated above.
+
 To remove all traces of ``block`` tables (before re-instating them)::
 
   django-admin.py migrate block zero
