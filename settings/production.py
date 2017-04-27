@@ -52,6 +52,10 @@ CELERYBEAT_SCHEDULE = {
         'task': 'mail.tasks.process_mail',
         'schedule': crontab(minute='1', hour='*/1'),
     },
+    'time_summary_by_user': {
+        'task': 'invoice.tasks.time_summary_by_user',
+        'schedule': crontab(minute='30', hour='4'),
+    },
     'update_search_index': {
         'task': 'search.tasks.update_search_index',
         'schedule': crontab(minute='15', hour='*/1'),
