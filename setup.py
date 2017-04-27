@@ -20,7 +20,7 @@ def get_readme():
 
 setup(
     name='kb-kbsoftware-couk',
-    packages=['project', 'project.management', 'project.management.commands', 'project.migrations', 'web', 'web.tests', 'settings', 'dash', 'dash.tests'],
+    packages=['web', 'web.tests', 'project', 'project.management', 'project.management.commands', 'project.migrations', 'dash', 'dash.tests', 'settings'],
     package_data={
         'project': [
             'static/*.*',
@@ -42,10 +42,10 @@ setup(
             'templates/dash/*.*',
         ],
     },
-    version='0.0.36',
+    version='0.0.37',
     description='KB Software Ltd',
-    author='Malcolm Dinsmore',
-    author_email='code-md@kbsoftware.co.uk',
+    author='Patrick Kimber',
+    author_email='code@pkimber.net',
     url='git@github.com:pkimber/kbsoftware_couk.git',
     classifiers=[
         'Development Status :: 1 - Planning',
