@@ -42,7 +42,7 @@ setup(
             'templates/dash/*.*',
         ],
     },
-    version='0.0.37',
+    version='0.0.38',
     description='KB Software Ltd',
     author='Patrick Kimber',
     author_email='code@pkimber.net',
